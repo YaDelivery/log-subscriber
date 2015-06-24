@@ -65,7 +65,8 @@ class LogSubscriber implements SubscriberInterface
                 $event->getResponse()
             ), [
                 'request' => $event->getRequest(),
-                'response' => $event->getResponse()
+                'response' => $event->getResponse(),
+                'url' => $event->getRequest()->getUrl(),
             ]
         );
     }
@@ -82,7 +83,8 @@ class LogSubscriber implements SubscriberInterface
             ), [
                 'request' => $event->getRequest(),
                 'response' => $event->getResponse(),
-                'exception' => $ex
+                'exception' => $ex,
+                'url' => $event->getRequest()->getUrl(),
             ]
         );
     }
